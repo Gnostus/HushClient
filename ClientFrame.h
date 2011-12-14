@@ -1,5 +1,4 @@
 #include <wx/wx.h>
-#include "IFrame.h"
 #include "ContactList.h"
 
 enum {

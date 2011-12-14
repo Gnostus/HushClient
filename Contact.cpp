@@ -1,8 +1,8 @@
 #include "Contact.h"
 #include "IDGenerator.h"
 
-Contact::Contact(string name) : name(name)  {
-	id = IDGenerator.GetId();
+Contact::Contact(std::string name) : name(name)  {
+	id = IDGenerator::GetId();
 	status = offline; // query client
 }
 

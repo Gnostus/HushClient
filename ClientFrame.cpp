@@ -15,7 +15,7 @@ ClientFrame::ClientFrame(const wxString& title, const wxPoint& pos, const wxSize
        : wxFrame(NULL, -1, title, pos, size) {
     wxMenu *menuFile = new wxMenu;
     wxBoxSizer * box = new wxBoxSizer(wxVERTICAL);
-    std::vector<Contact&> contacts;
+    std::vector<Contact> contacts;
     ContactList * contactList = new ContactList(contacts, this, wxNewId());
     
     menuFile->Append( ID_About, _("&About...") );

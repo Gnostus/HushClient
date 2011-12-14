@@ -43,7 +43,9 @@ void ClientFrame::OnQuit(wxCommandEvent& WXUNUSED(event)) {
 }
  
 void ClientFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {
-    wxMessageBox( _("This is an encrypted chat client,\n keep the sniffers off your convo!"), _("About HushChat"),
-                  wxOK | wxICON_INFORMATION, this );
+    wxMessageBox( _("This is an encrypted chat client,\n keep the sniffers off your convo!"), 
+			    _("About HushChat"),
+			    wxOK | wxICON_INFORMATION,
+			    this );
 }
 
