@@ -1,3 +1,6 @@
+#ifndef CONTACT
+#define CONTACT
+
 #include <string>
 
 typedef enum  {
@@ -9,11 +12,13 @@ typedef enum  {
 class Contact  { 
 public:
 	Contact(std::string name);
-	Contact(int id);
-	void OpenChat(int id);
+	Contact(long id);
+	void OpenChat(long id);
+	long id;
+	std::string name;
 	
 private: 
-	int id;
-	std::string name;
 	activeStatus status;	
 };
+
+#endif

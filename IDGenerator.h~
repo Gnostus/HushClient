@@ -1,3 +1,6 @@
+#ifndef ID_GENERATOR
+#define ID_GENERATOR
+
 #include <cstddef>
 
 class IDGenerator {
@@ -6,7 +9,9 @@ public:
 	static void SetId(int _id) { getInstance()->id = _id; } 
 private:
         IDGenerator() { id = 0;  }
+	int id; 
         static IDGenerator* getInstance();
 	static IDGenerator* _instance;
-	int id; 
 };
+
+#endif

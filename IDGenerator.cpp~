@@ -1,7 +1,7 @@
 #include "IDGenerator.h"
 #include <cstddef>
 
-_instance = NULL;
+IDGenerator* IDGenerator::_instance = NULL;
 IDGenerator* IDGenerator::getInstance() {
       if(_instance == NULL) _instance = new IDGenerator();
       return _instance;

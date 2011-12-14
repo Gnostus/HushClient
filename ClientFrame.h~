@@ -1,18 +1,27 @@
+#ifndef CONTACT_FRAME
+#define CONTACT_FRAME
+
 #include <wx/wx.h>
-#include "IFrame.h"
 #include "ContactList.h"
 
 enum {
     ID_Quit = 1,
     ID_About,
+    ID_Add_Contact,
 };
 
 class ClientFrame: public wxFrame {
 public:
-    ClientFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
+    ClientFrame(std::vector<Contact>& contacts, const wxString& title, const wxPoint& pos, const wxSize& size);
 
+    void OnAddContact(wxCommandEvent& WXUNUSED(event));
     void OnQuit(wxCommandEvent& event);
     void OnAbout(wxCommandEvent& event);
 
     DECLARE_EVENT_TABLE()
+    
+private:
+      std::vector<Contact>& contacts;
 };
+
+#endif

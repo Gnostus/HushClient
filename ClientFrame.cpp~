@@ -1,23 +1,23 @@
 #include "ClientFrame.h"  
 #include <vector>
+#include "AddContactFrame.h"
 
 BEGIN_EVENT_TABLE(ClientFrame, wxFrame)
     EVT_MENU(ID_Quit,  ClientFrame::OnQuit)
     EVT_MENU(ID_About, ClientFrame::OnAbout)
+    EVT_MENU(ID_Add_Contact, ClientFrame::OnAddContact)
 END_EVENT_TABLE()
+ 
 
-void INSERT_TEST_DATA(ContactList* list) {
-    long index = list->InsertItem(0, _("John Smith"));
-    list->SetItem(index, 1, _("jsmith"));
-}
-
-ClientFrame::ClientFrame(const wxString& title, const wxPoint& pos, const wxSize& size) 
-       : wxFrame(NULL, -1, title, pos, size) {
+ClientFrame::ClientFrame(std::vector<Contact>& contacts,  const wxString& title, const wxPoint& pos, const wxSize& size) 
+       : wxFrame(NULL, -1, title, pos, size), contacts(contacts) {
+	 
     wxMenu *menuFile = new wxMenu;
     wxBoxSizer * box = new wxBoxSizer(wxVERTICAL);
-    std::vector<Contact&> contacts;
+    
     ContactList * contactList = new ContactList(contacts, this, wxNewId());
     
+    menuFile->Append( ID_Add_Contact, _("&Add Contact") );
     menuFile->Append( ID_About, _("&About...") );
     menuFile->AppendSeparator();
     menuFile->Append( ID_Quit, _("E&xit") );
@@ -27,21 +27,22 @@ ClientFrame::ClientFrame(const wxString& title, const wxPoint& pos, const wxSize
     
     wxMenuBar *menuBar = new wxMenuBar;
     menuBar->Append( menuFile, _("&Main") ); 
-    contactList->InsertColumn(0, _("User Name"));
-    contactList->InsertColumn(1, _("User ID"));
     SetMenuBar( menuBar );
 
     CreateStatusBar();
     SetStatusText( _("Ⓐ") );
-    
-    // delete me later
-    INSERT_TEST_DATA(contactList);
 } 
 
 void ClientFrame::OnQuit(wxCommandEvent& WXUNUSED(event)) {
     Close(true);
 }
  
+void ClientFrame::OnAddContact(wxCommandEvent& WXUNUSED(event)) {
+      AddContactFrame *frame = new AddContactFrame( _("Add Contact"), wxPoint(50, 50), wxSize(275, 350) );
+      frame->Show(true);
+      
+}
+
 void ClientFrame::OnAbout(wxCommandEvent& WXUNUSED(event)) {
     wxMessageBox( _("This is an encrypted chat client,\n keep the sniffers off your convo!"), 
 			    _("About HushChat"),

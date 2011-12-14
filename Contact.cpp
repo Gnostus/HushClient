@@ -6,11 +6,11 @@ Contact::Contact(std::string name) : name(name)  {
 	status = offline; // query client
 }
 
-Contact::Contact(int id) : id(id)  {
+Contact::Contact(long id) : id(id)  {
 	name = "blankity"; // read from persistant storage
 	status = offline; // query client
 }
 
-void Contact::OpenChat(int id)  {
+void Contact::OpenChat(long id)  {
 
 }

@@ -1,3 +1,6 @@
+#ifndef CONTACT_LIST
+#define CONTACT_LIST
+
 #include <wx/wx.h>
 #include "Contact.h"
 #include <vector>
@@ -15,3 +18,5 @@ public:
 private:
 	std::vector<Contact>& contacts;
 };
+
+#endif
