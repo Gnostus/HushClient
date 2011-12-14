@@ -14,4 +14,4 @@ run: all
 	./$(executable)
 	
 clean: 
-	rm -f $(objects) $(executable)
+	rm -f $(objects) $(executable) *~
