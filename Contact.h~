@@ -6,7 +6,7 @@ typedef enum  {
 	away
 } activeStatus;
 
-class Contact  { 
+class Contact  
 public:
 	Contact(std::string name);
 	Contact(int id);
