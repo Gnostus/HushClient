@@ -1,7 +1,7 @@
 #ifndef CONTACT
 #define CONTACT
-
-#include <string>
+ 
+#include <wx/wx.h>
 
 typedef enum  {
 	online,
@@ -11,11 +11,11 @@ typedef enum  {
 
 class Contact  { 
 public:
-	Contact(std::string name);
+	Contact(wxString name);
 	Contact(long id);
 	void OpenChat(long id);
 	long id;
-	std::string name;
+	wxString name;
 	
 private: 
 	activeStatus status;	

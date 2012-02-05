@@ -9,10 +9,20 @@ enum {
     ID_Contact_Name
 };
 
-class AddContactFrame: public wxFrame {
+class AddContactModel {
 public:
-    AddContactFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
+	AddContactModel() {};
+	wxString contactName;
+	bool successful;
+};
+
+class AddContactFrame: public wxDialog {
+public:
+    AddContactFrame(const wxString& title, const wxSize& size,  AddContactModel& model);
     void Cancel(wxCommandEvent& evt);
+    void Ok(wxCommandEvent& evt);
+    AddContactModel& model;
+     wxTextCtrl *contactName;
     DECLARE_EVENT_TABLE()     
 };
 

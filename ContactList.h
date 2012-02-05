@@ -11,12 +11,13 @@ enum {
 
 class ContactList: public wxListCtrl {
 public:
-    ContactList(std::vector<Contact>& contacts, wxWindow* parent, wxWindowID id);
+    ContactList(std::vector<Contact>* contacts, wxWindow* parent, wxWindowID id);
 	void OnContactActivation(wxListEvent& event);
+	void RefreshData();
     DECLARE_EVENT_TABLE()
   
 private:
-	std::vector<Contact>& contacts;
+	std::vector<Contact>* contacts;
 };
 
 #endif

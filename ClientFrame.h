@@ -12,16 +12,18 @@ enum {
 
 class ClientFrame: public wxFrame {
 public:
-    ClientFrame(std::vector<Contact>& contacts, const wxString& title, const wxPoint& pos, const wxSize& size);
+    ClientFrame(std::vector<Contact>* contacts, const wxString& title, const wxPoint& pos, const wxSize& size);
 
     void OnAddContact(wxCommandEvent& WXUNUSED(event));
     void OnQuit(wxCommandEvent& event);
     void OnAbout(wxCommandEvent& event);
 
     DECLARE_EVENT_TABLE()
+private:
+	ContactList* contactList;
     
 private:
-      std::vector<Contact>& contacts;
+      std::vector<Contact>* contacts;
 };
 
 #endif
