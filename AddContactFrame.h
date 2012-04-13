@@ -22,7 +22,7 @@ public:
     void Cancel(wxCommandEvent& evt);
     void Ok(wxCommandEvent& evt);
     AddContactModel& model;
-     wxTextCtrl *contactName;
+    wxTextCtrl *contactName;
     DECLARE_EVENT_TABLE()     
 };
 

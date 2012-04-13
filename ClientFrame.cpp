@@ -15,7 +15,8 @@ ClientFrame::ClientFrame(std::vector<Contact>* contacts,  const wxString& title,
     wxMenu *menuFile = new wxMenu;
     wxBoxSizer * box = new wxBoxSizer(wxVERTICAL);
     
-    contactList = new ContactList(contacts, this, wxNewId());
+    model = new ContactListModel(contacts);
+    contactList = new ContactList(model, this, wxNewId());
     
     menuFile->Append( ID_Add_Contact, _("&Add Contact") );
     menuFile->Append( ID_About, _("&About...") );
@@ -31,6 +32,10 @@ ClientFrame::ClientFrame(std::vector<Contact>* contacts,  const wxString& title,
 
     CreateStatusBar();
     SetStatusText( _("Ⓐ") );
+}
+
+void ClientFrame::OnContactActivation() { 
+	Close();
 }
 
 void ClientFrame::OnQuit(wxCommandEvent& WXUNUSED(event)) {
