@@ -1,9 +1,9 @@
-objects = main.o HushApp.o ClientFrame.o ContactList.o Contact.o IDGenerator.o AddContactFrame.o ChatFrame.o
+objects = main.o HushApp.o User.o LoginFrame.o ClientFrame.o ContactList.o Contact.o IDGenerator.o AddContactFrame.o ChatFrame.o
 libs = `wx-config --libs`
 compile = g++ -c $(flags)
 tumble = g++ -o
 flags = `wx-config --cxxflags`
-src = main.cpp HushApp.cpp ClientFrame.cpp ContactList.cpp Contact.cpp IDGenerator.cpp AddContactFrame.cpp ChatFrame.cpp
+src = main.cpp HushApp.cpp User.cpp LoginFrame.cpp ClientFrame.cpp ContactList.cpp Contact.cpp IDGenerator.cpp AddContactFrame.cpp ChatFrame.cpp
 executable = hushClient
 
 all: 
